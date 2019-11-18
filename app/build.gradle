@@ -68,5 +68,7 @@ dependencies {
     //greendao
     implementation 'org.greenrobot:greendao:3.2.2' // add library
 
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
 
 }
