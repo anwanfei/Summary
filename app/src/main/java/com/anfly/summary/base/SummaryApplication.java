@@ -3,9 +3,9 @@ package com.anfly.summary.base;
 import android.app.Application;
 
 public class SummaryApplication extends Application {
-    public SummaryApplication app;
+    public static SummaryApplication app;
 
-    public SummaryApplication getApp() {
+    public static SummaryApplication getApp() {
         return app;
     }
 

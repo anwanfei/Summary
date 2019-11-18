@@ -26,15 +26,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract int getLayoutId();
 
-    private void initMvp() {
+    protected void initMvp() {
     }
 
-    private void initListener() {
+    protected void initListener() {
     }
 
-    private void initData() {
+    protected void initData() {
     }
 
-    private void initView() {
+    protected void initView() {
     }
 }
