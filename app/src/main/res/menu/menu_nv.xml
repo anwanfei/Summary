@@ -3,9 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
     //checkable是否可选
-    <group android:id="@+id/group0">
-        <item android:title="" />
-    </group>
     <item android:title="@string/function" />
     <group android:id="@+id/group1">
         <item
