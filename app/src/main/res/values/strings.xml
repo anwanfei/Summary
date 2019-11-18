@@ -8,4 +8,11 @@
     <string name="net_error">网络错误</string>
     <string name="parse_error">解析异常</string>
     <string name="net_unused">当前网络不可用</string>
+    <string name="login">登录</string>
+    <string name="function">核心功能</string>
+    <string name="music">我的音乐</string>
+    <string name="contact">联系我们</string>
+    <string name="notification">开启消息</string>
+    <string name="search">搜索</string>
+    <string name="wan_android">玩安卓</string>
 </resources>

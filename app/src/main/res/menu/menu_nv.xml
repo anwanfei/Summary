@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    //checkable是否可选
+    <group android:id="@+id/group0">
+        <item android:title="" />
+    </group>
+    <item android:title="@string/function" />
+    <group android:id="@+id/group1">
+        <item
+            android:id="@+id/item1"
+            android:checkable="true"
+            android:icon="@drawable/ic_mic"
+            android:title="@string/music" />
+        <item
+            android:id="@+id/item2"
+            android:checkable="true"
+            android:icon="@drawable/ic_phone"
+            android:title="@string/contact" />
+        <item
+            android:id="@+id/item3"
+            android:checkable="true"
+            android:icon="@drawable/perm_group_sms"
+            android:title="@string/notification" />
+        <item
+            android:id="@+id/item4"
+            android:checkable="true"
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="@string/search" />
+    </group>
+    //给某组菜单添加标题
+    <item android:title="@string/function" />
+    //两个添加id的group之间会有分割线
+    <group android:id="@+id/group2">
+        <item
+            android:id="@+id/item5"
+            android:checkable="true"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/wan_android" />
+        <item
+            android:id="@+id/item6"
+            android:checkable="true"
+            android:icon="@android:drawable/ic_menu_send"
+            android:title="@string/wan_android" />
+        <item
+            android:id="@+id/item7"
+            android:checkable="true"
+            android:icon="@android:drawable/btn_star"
+            android:title="@string/wan_android" />
+        <item
+            android:id="@+id/item8"
+            android:checkable="true"
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="@string/wan_android" />
+    </group>
+</menu>
