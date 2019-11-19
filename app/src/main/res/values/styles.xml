@@ -23,10 +23,11 @@
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:button">@android:color/transparent</item>
         <item name="android:drawablePadding">3dp</item>
+        <!--点击radiobutton的时候有阴影，可以去除-->
+        <item name="android:background">@android:color/transparent</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@drawable/selector_rb_style_textcolor</item>
         <item name="android:textSize">10sp</item>
         <item name="android:layout_weight">1</item>
     </style>
-
 </resources>
