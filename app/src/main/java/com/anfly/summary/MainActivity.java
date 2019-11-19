@@ -1,5 +1,7 @@
 package com.anfly.summary;
 
+import android.content.Intent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -17,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.anfly.summary.activity.MultiLayoutAcitivty;
 import com.anfly.summary.base.BaseActivity;
 import com.anfly.summary.base.BaseFragment;
 import com.anfly.summary.fragment.DistanceFragment;
@@ -33,7 +36,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -63,6 +66,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     protected void initView() {
         super.initView();
 
+        //初始化危险权限
+        initPermission();
+
         //NavigationView隐藏滑动滚动条
         NavigationMenuView navigationMenuItemView = (NavigationMenuView) nv.getChildAt(0);
         if (navigationMenuItemView != null) {
@@ -87,6 +93,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         //默认显示homefragment
         defaultHomeFragment();
+    }
+
+    private void initPermission() {
+
     }
 
     private void defaultHomeFragment() {
@@ -145,13 +155,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         //radiobutton点击事件
         rg.setOnCheckedChangeListener(this);
 
+        //侧滑菜单点击事件
+        nv.setNavigationItemSelectedListener(this);
+
     }
 
+    /**
+     * 获取头部的点击事件
+     *
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         Toast.makeText(MainActivity.this, "头部点击事件", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * radiobutton点击事件
+     *
+     * @param radioGroup
+     * @param checkedId
+     */
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
         switch (checkedId) {
@@ -201,5 +225,31 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         //toolbar设置标题
         toolbar.setTitle(getResources().getString(title));
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.item1:
+
+                break;
+            case R.id.item2:
+
+                break;
+            case R.id.item3:
+
+                break;
+            case R.id.item4:
+
+                break;
+            case R.id.item5:
+                Intent intent = new Intent(this, MultiLayoutAcitivty.class);
+                startActivity(intent);
+                break;
+            case R.id.item6:
+
+                break;
+        }
+        return false;
     }
 }

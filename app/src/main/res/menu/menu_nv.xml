@@ -27,14 +27,14 @@
             android:title="@string/search" />
     </group>
     //给某组菜单添加标题
-    <item android:title="@string/function" />
+    <item android:title="@string/other_function" />
     //两个添加id的group之间会有分割线
     <group android:id="@+id/group2">
         <item
             android:id="@+id/item5"
             android:checkable="true"
             android:icon="@mipmap/ic_launcher"
-            android:title="@string/wan_android" />
+            android:title="@string/multi_layout" />
         <item
             android:id="@+id/item6"
             android:checkable="true"

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class BasePresenter<V extends BaseView, M extends BaseModel> {
     ArrayList<BaseModel> mModels = new ArrayList<BaseModel>();
 
-    private V mMvpView;
+    public V mMvpView;
 
     public BasePresenter() {
         initModel();
