@@ -59,7 +59,7 @@
                 android:text="@string/wheel" />
 
             <RadioButton
-                android:id="@+id/rb_my"
+                android:id="@+id/rb_mine"
                 style="@style/botttom_tag_style"
                 android:drawableTop="@drawable/selector_rb_my"
                 android:text="@string/mine" />

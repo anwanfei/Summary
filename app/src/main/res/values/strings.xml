@@ -22,4 +22,7 @@
     <string name="wheel">轮子</string>
     <string name="mine">我的</string>
     <string name="distance">远方</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
