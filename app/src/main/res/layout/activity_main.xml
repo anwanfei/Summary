@@ -27,18 +27,42 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray" />
+
         <RadioGroup
+            android:layout_marginTop="2dp"
             android:id="@+id/rg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rb_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@null"
-                android:drawableTop="@drawable/selector_home_tab"
+                style="@style/botttom_tag_style"
+                android:checked="true"
+                android:drawableTop="@drawable/selector_rb_home"
                 android:text="@string/home" />
+
+            <RadioButton
+                android:id="@+id/rb_distance"
+                style="@style/botttom_tag_style"
+                android:drawableTop="@drawable/selector_rb_distance"
+                android:text="@string/distance" />
+
+            <RadioButton
+                android:id="@+id/rb_wheel"
+                style="@style/botttom_tag_style"
+                android:drawableTop="@drawable/selector_rb_wheel"
+                android:text="@string/wheel" />
+
+            <RadioButton
+                android:id="@+id/rb_my"
+                style="@style/botttom_tag_style"
+                android:drawableTop="@drawable/selector_rb_my"
+                android:text="@string/mine" />
         </RadioGroup>
 
     </LinearLayout>

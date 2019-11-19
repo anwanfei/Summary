@@ -44,7 +44,13 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         super.initView();
         toolbar.setTitle(getResources().getString(R.string.home));
+        toolbar.setSubtitle(getResources().getString(R.string.fly));
+        toolbar.setSubtitleTextColor(getResources().getColor(R.color.colorWhite));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+        toolbar.setLogo(R.mipmap.a);
         setSupportActionBar(toolbar);
+
+        nv.setItemIconTintList(null);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, dl, toolbar, R.string.open, R.string.close);
         dl.addDrawerListener(toggle);
