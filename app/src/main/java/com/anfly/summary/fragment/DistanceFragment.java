@@ -32,7 +32,7 @@ import butterknife.BindView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DistanceFragment extends BaseMvpFaragment<ImpDistancePresenter, DistanceView> implements DistanceView, OnRefreshLoadMoreListener {
+public class DistanceFragment extends BaseMvpFaragment<ImpDistancePresenter, DistanceView> implements DistanceView, OnRefreshLoadMoreListener, DistanceAdapter.OnItemClickListener {
     @BindView(R.id.rv_distance)
     RecyclerView rvDistance;
     @BindView(R.id.srl_distance)
@@ -58,6 +58,8 @@ public class DistanceFragment extends BaseMvpFaragment<ImpDistancePresenter, Dis
         adapter = new DistanceAdapter(list, context);
         rvDistance.setAdapter(adapter);
         srlDistance.setOnRefreshLoadMoreListener(this);
+
+        adapter.setOnItemClickListener(this);
     }
 
     @Override
@@ -129,5 +131,15 @@ public class DistanceFragment extends BaseMvpFaragment<ImpDistancePresenter, Dis
             page = 1;
             initData();
         }
+    }
+
+    /**
+     * 条目点击事件
+     *
+     * @param position
+     */
+    @Override
+    public void onItemClick(int position) {
+
     }
 }

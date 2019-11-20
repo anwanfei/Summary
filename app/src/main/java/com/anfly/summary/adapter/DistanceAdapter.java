@@ -22,6 +22,11 @@ public class DistanceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private int VIEW_TYPE_ONE = 1;
     private int VIEW_TYPE_TWO = 2;
     private final LayoutInflater inflater;
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     public DistanceAdapter(ArrayList<FoodBean.DataBean> list, Context context) {
         this.list = list;
@@ -56,6 +61,15 @@ public class DistanceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             viewHolder2.tv_one_title.setText(dataBean.getTitle());
             viewHolder2.tv_two_title.setText(dataBean.getFood_str());
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -97,6 +111,10 @@ public class DistanceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             this.tv_one_title = (TextView) rootView.findViewById(R.id.tv_one_title);
             this.tv_two_title = (TextView) rootView.findViewById(R.id.tv_two_title);
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
     }
 
 }
