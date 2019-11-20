@@ -37,6 +37,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.anfly.summary.activity.CollectionAcitivty;
 import com.anfly.summary.activity.ExpandableListViewActivity;
+import com.anfly.summary.activity.MusicActivity;
 import com.anfly.summary.activity.WebViewActivity;
 import com.anfly.summary.base.BaseActivity;
 import com.anfly.summary.base.BaseFragment;
@@ -289,7 +290,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.item1:
-
+                goActivity(MusicActivity.class);
                 break;
             case R.id.item2:
                 callPhone();

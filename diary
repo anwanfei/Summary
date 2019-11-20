@@ -1,0 +1,15 @@
+1. mvp + Rxjava + retrofit + Glide + Greendao + radiogroup + radioButton + drawerlayout + navigationlayout + toolbar       整体项目
+2. recyclerview + 多布局 + banner + smartRefreshLayout + 接口回调点击事件        首页
+3. recyclerview + 多布局 + 布局管理器切换 + 选项菜单                             远方
+4. 动态获取危险权限 + 打电话                                                     联系我们
+5. 通知 + 点击 通知跳转                                                          发送消息
+6. 上下文菜单 + populwindown + 进出动画 + 全屏阴影  + greendao                    收藏功能
+7. 二级列表 + 二级条目点击事件                                                    二级列表
+8. android音乐播放器 +  服务 + 内容提供者                                         我的音乐
+9. tablayout + viewpager实现欢迎页                                               引导页
+10.Rxjava + 动画（三种动画的使用）+ handler + CountDown                           欢迎页
+11.广播 + EventBus
+12.手写三级缓存
+13.上传（本地、相机、相册） + 单线程下载 + 多线程断点下载 + apk安装
+14.视频播放器
+15.第三方登录

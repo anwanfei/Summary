@@ -30,4 +30,9 @@
         <item name="android:textSize">10sp</item>
         <item name="android:layout_weight">1</item>
     </style>
+
+    <style name="popStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_enter</item>
+        <item name="android:windowExitAnimation">@anim/anim_exit</item>
+    </style>
 </resources>

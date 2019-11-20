@@ -21,6 +21,11 @@ public class CollectionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private Context context;
     private final LayoutInflater inflater;
     private OnItemClickListener onItemClickListener;
+    private OnItemLongClickListener onItemLongClickListener;
+
+    public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
+        this.onItemLongClickListener = onItemLongClickListener;
+    }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
@@ -55,6 +60,16 @@ public class CollectionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
             }
         });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if (onItemLongClickListener != null) {
+                    onItemLongClickListener.onItemLongClick(position);
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -77,5 +92,9 @@ public class CollectionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public interface OnItemClickListener {
         void onItemClick(int position);
+    }
+
+    public interface OnItemLongClickListener {
+        void onItemLongClick(int position);
     }
 }
