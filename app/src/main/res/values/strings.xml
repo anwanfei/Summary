@@ -29,4 +29,5 @@
     <string name="multi_layout">多布局</string>
     <string name="collection">收藏</string>
     <string name="expandbleList">二级列表</string>
+    <string name="jump">跳过</string>
 </resources>
