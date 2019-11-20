@@ -8,6 +8,12 @@ import com.anfly.summary.dao.FoodDbBeanDao;
 
 import java.util.List;
 
+/**
+ * 配置流程：123
+ * 1.一个bean
+ * 2.两个工程配置
+ * 3.三个项目配置
+ */
 public class GreendaoUtil {
     private static GreendaoUtil greendaoUtil;
     private final FoodDbBeanDao foodDbBeanDao;

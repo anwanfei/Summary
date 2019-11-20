@@ -29,7 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.anfly.summary.activity.MultiLayoutAcitivty;
+import com.anfly.summary.activity.CollectionAcitivty;
 import com.anfly.summary.activity.WebViewActivity;
 import com.anfly.summary.base.BaseActivity;
 import com.anfly.summary.base.BaseFragment;
@@ -250,7 +250,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
                 break;
             case R.id.item5:
-                Intent intent = new Intent(this, MultiLayoutAcitivty.class);
+                Intent intent = new Intent(this, CollectionAcitivty.class);
                 startActivity(intent);
                 break;
             case R.id.item6:

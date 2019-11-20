@@ -17,6 +17,8 @@ import com.anfly.summary.R;
 import com.anfly.summary.adapter.DistanceAdapter;
 import com.anfly.summary.base.BaseMvpFaragment;
 import com.anfly.summary.bean.FoodBean;
+import com.anfly.summary.bean.FoodDbBean;
+import com.anfly.summary.db.GreendaoUtil;
 import com.anfly.summary.presenter.ImpDistancePresenter;
 import com.anfly.summary.utils.ToastUtil;
 import com.anfly.summary.view.DistanceView;
@@ -140,6 +142,17 @@ public class DistanceFragment extends BaseMvpFaragment<ImpDistancePresenter, Dis
      */
     @Override
     public void onItemClick(int position) {
-
+        FoodBean.DataBean dataBean = list.get(position);
+        FoodDbBean foodDbBean = new FoodDbBean();
+        foodDbBean.setDes(dataBean.getFood_str());
+        foodDbBean.setId(Long.valueOf(position));
+        foodDbBean.setTitle(dataBean.getTitle());
+        foodDbBean.setUrl(dataBean.getPic());
+        long insert = GreendaoUtil.getGreendaoUtil().insert(foodDbBean);
+        if (insert >= 0) {
+            ToastUtil.showShort("收藏成功");
+        } else {
+            ToastUtil.showShort("收藏失败");
+        }
     }
 }

@@ -34,7 +34,7 @@
             android:id="@+id/item5"
             android:checkable="true"
             android:icon="@mipmap/ic_launcher"
-            android:title="@string/multi_layout" />
+            android:title="@string/collection" />
         <item
             android:id="@+id/item6"
             android:checkable="true"
