@@ -1,5 +1,6 @@
 package com.anfly.summary.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -37,4 +38,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void initView() {
     }
+
+    protected <T> void goActivity(Class<T> mClass) {
+        Intent intent = new Intent(this, mClass );
+        startActivity(intent);
+    }
+
 }

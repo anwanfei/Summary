@@ -23,7 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    greendao{
+    greendao {
         schemaVersion 6//数据库版本号
         daoPackage 'com.anfly.summary.dao'  //数据库全路径
         targetGenDir 'src/main/java'  //存放位置

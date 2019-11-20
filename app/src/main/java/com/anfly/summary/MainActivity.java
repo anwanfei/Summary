@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -30,6 +31,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.anfly.summary.activity.CollectionAcitivty;
+import com.anfly.summary.activity.ExpandableListViewActivity;
 import com.anfly.summary.activity.WebViewActivity;
 import com.anfly.summary.base.BaseActivity;
 import com.anfly.summary.base.BaseFragment;
@@ -250,13 +252,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
                 break;
             case R.id.item5:
-                Intent intent = new Intent(this, CollectionAcitivty.class);
-                startActivity(intent);
+                goActivity(CollectionAcitivty.class);
                 break;
             case R.id.item6:
-
+                goActivity(ExpandableListViewActivity.class);
                 break;
         }
+        dl.closeDrawer(Gravity.LEFT);
         return false;
     }
 
