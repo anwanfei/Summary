@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 29
@@ -21,6 +22,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    greendao{
+        schemaVersion 6//数据库版本号
+        daoPackage 'com.anfly.summary.dao'  //数据库全路径
+        targetGenDir 'src/main/java'  //存放位置
     }
 }
 
@@ -71,5 +77,6 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
 
+    implementation 'org.greenrobot:greendao:3.2.2' // add greendao library
 
 }
