@@ -14,4 +14,9 @@ public class SummaryApplication extends Application {
         super.onCreate();
         app = this;
     }
+
+    public void exitApp() {
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(0);
+    }
 }

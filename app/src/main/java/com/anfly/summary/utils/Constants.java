@@ -24,4 +24,5 @@ public interface Constants {
     String PATH_CACHE = PATH_DATA + "/NetCache";
     String MODE = "mode";
     String FRAGMENT_POSITION = "FRAGMENT_POSITION";
+    String JIANSHU_URL = "https://www.jianshu.com/u/5e15922197dd";
 }
