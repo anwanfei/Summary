@@ -1,5 +1,6 @@
 package com.anfly.summary;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -7,8 +8,11 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -43,6 +48,7 @@ import com.anfly.summary.fragment.WheelFragment;
 import com.anfly.summary.utils.Constants;
 import com.anfly.summary.utils.FragmentType;
 import com.anfly.summary.utils.SharedPreferencesUtil;
+import com.anfly.summary.utils.ToastUtil;
 import com.google.android.material.internal.NavigationMenuView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -80,9 +86,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     protected void initView() {
         super.initView();
 
-        //初始化危险权限
-        initPermission();
-
         //NavigationView隐藏滑动滚动条
         NavigationMenuView navigationMenuItemView = (NavigationMenuView) nv.getChildAt(0);
         if (navigationMenuItemView != null) {
@@ -109,8 +112,54 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         defaultHomeFragment();
     }
 
-    private void initPermission() {
+    /**
+     * 检查是否动态配置危险权限
+     */
+    private boolean checkPermission(String permission) {
+        if (ActivityCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        return false;
+    }
 
+    /**
+     * 态配置危险权限
+     */
+    private void requstPermission(String[] arr) {
+        ActivityCompat.requestPermissions(this, arr, 100);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 100) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                ToastUtil.showShort("授权成功");
+                callPhone();
+            } else {
+                //引导用户去设置里面手动设置权限
+                openAppDetails();
+            }
+        }
+    }
+
+    private void openAppDetails() {
+        new AlertDialog.Builder(this)
+                .setMessage("需要拨打电话权限")
+                .setPositiveButton("手动设置", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent();
+                        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                        intent.setData(Uri.parse("package:" + getPackageName()));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .create()
+                .show();
     }
 
     private void defaultHomeFragment() {
@@ -243,7 +292,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
                 break;
             case R.id.item2:
-
+                callPhone();
                 break;
             case R.id.item3:
                 notification();
@@ -260,6 +309,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
         dl.closeDrawer(Gravity.LEFT);
         return false;
+    }
+
+    private void callPhone() {
+        boolean b = checkPermission(Manifest.permission.CALL_PHONE);
+        if (b) {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:10086"));
+            startActivity(intent);
+        } else {
+            requstPermission(new String[]{Manifest.permission.CALL_PHONE});
+        }
     }
 
     private void notification() {

@@ -30,13 +30,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorGray" />
+            android:background="@color/colorPrimary" />
 
         <RadioGroup
-            android:layout_marginTop="2dp"
             android:id="@+id/rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
 
             <RadioButton
